@@ -8,7 +8,9 @@ router.get('/login', (request, response) => {
 
 // auth logout
 router.get('/logout', (request, response) => {
-    response.send('logging out now...')
+    // express removes the cookie client side
+    request.logout()
+    response.redirect('/')
 })
 
 router.get('/google', passport.authenticate('google', { scope: ['profile']} ))
