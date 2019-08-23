@@ -23,14 +23,15 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_APP_SECRET,
     callbackURL: '/auth/google/redirect'
 }, async (accessToken, refreshToken, profile, done) => {
-    console.log('passport callback function fired')
+    const thumbnail = profile.photos[0].value
+    console.log(thumbnail)
     try {
         const user = await User.findOne({ googleId: profile.id })
         if (user) {
             console.log('user already exists in the database!')
             done(null, user)
         } else {
-            const newUser = await new User({ username: profile.displayName,googleId: profile.id }).save()
+            const newUser = await new User({ username: profile.displayName,googleId: profile.id, thumbnail: thumbnail }).save()
             console.log('new user saved to database!')
             done(null, newUser)
         }
