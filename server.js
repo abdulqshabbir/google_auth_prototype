@@ -18,7 +18,7 @@ mongoose.connect('mongodb+srv://abdulqshabbir:As23081001519050@cluster0-oq5cv.mo
 
 app.use(cookieSession({
     name: 'session',
-    maxAge: 1000*60*60*24,
+    maxAge: 1000*60*60, // 1 hour
     keys: [process.env.COOKIE_KEY],
     secret: process.env.SESSION_SECRET
 }))
@@ -35,6 +35,6 @@ app.get('/', (request, response) => {
     response.render('home', { user: request.user })
 })
 
-app.listen(3000, () => {
-    console.log('app now listening for requests on port 3000');
+app.listen(3001, () => {
+    console.log('app now listening for requests on port 3001');
 });
