@@ -18,7 +18,7 @@ router.get('/google', passport.authenticate('google', { scope: ['profile']} ))
 
 
 router.get('/google/redirect', passport.authenticate('google'), (request, response) => {
-    response.render('profile', { user: request.user })
+    response.status(200).json(request.user)
 })
 
 module.exports = router;
