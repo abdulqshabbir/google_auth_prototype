@@ -2,6 +2,9 @@ import React from 'react'
 import './Login.css'
 
 const Login = ({ user }) => {
+    const handleGoogleLogin = () => {
+        window.open('http://localhost:3001/auth/google', '_self')
+    }
     if (user) {
         return (
             <>
@@ -17,7 +20,7 @@ const Login = ({ user }) => {
                     <h1>Login using...</h1>
                 </header>
                 <main>
-                    <a class="google-btn" href="/auth/google">Google+</a>
+                    <a class="google-btn" href="/auth/google" onClick={handleGoogleLogin}>Google+</a>
                 </main>
             </>
         )
@@ -34,7 +37,12 @@ const Login = ({ user }) => {
                     <h1>Login using...</h1>
                 </header>
                 <main>
-                    <a class="google-btn" href="/auth/google">Google+</a>
+                    <button 
+                        className="google-btn"
+                        onClick={handleGoogleLogin}
+                    >
+                        Google+
+                    </button>
                 </main>
             </>
         )
