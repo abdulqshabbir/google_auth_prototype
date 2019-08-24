@@ -11,7 +11,7 @@ const Home = ({ user }) => {
             <>
                 <nav>
                     <ul>
-                        <li><a onClick={handleLogout}>Logout</a></li>
+                    <li><a onClick={handleLogout}>Logout</a></li>
                         <li><a href="/">Homepage</a></li>
                         <li><a href="/profile">Profile</a></li>
                     </ul>
