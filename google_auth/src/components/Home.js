@@ -1,13 +1,17 @@
 import React from 'react'
 import './Home.css'
+import axios from 'axios'
 
 const Home = ({ user }) => {
+    const handleLogout = () => {
+        window.open('http://localhost:3001/auth/logout', '_self')
+    }
     if (user) {
         return (
             <>
                 <nav>
                     <ul>
-                        <li><a href="/auth/logout">Log out</a></li>
+                        <li><a onClick={handleLogout}>Logout</a></li>
                         <li><a href="/">Homepage</a></li>
                         <li><a href="/profile">Profile</a></li>
                     </ul>

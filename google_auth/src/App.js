@@ -9,7 +9,7 @@ const App = () => {
   const [ user, setUser ] = useState(null)
   useEffect(() => {
     axios
-      .get('http://localhost:3001', { withCredentials: true })
+      .get('http://localhost:3001', { withCredentials: true }) // withCredentials must be included beacuse browswer does not send cookies to a CORS request by default
       .then(response => {
         if (response.status === 200) {
           console.log(response.data)

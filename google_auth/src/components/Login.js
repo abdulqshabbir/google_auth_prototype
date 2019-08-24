@@ -2,6 +2,9 @@ import React from 'react'
 import './Login.css'
 
 const Login = ({ user }) => {
+    const handleLogout = () => {
+        window.open('http://localhost:3001/auth/logout', '_self')
+    }
     const handleGoogleLogin = () => {
         window.open('http://localhost:3001/auth/google', '_self')
     }
@@ -10,8 +13,7 @@ const Login = ({ user }) => {
             <>
                 <nav>
                     <ul>
-                        <li><a href="/auth/logout">Log out</a></li>
-                        <li><a href="/auth/login">Login</a></li>
+                        <li><a onClick={handleLogout}>Logout</a></li>
                         <li><a href="/">Homepage</a></li>
                         <li><a href="/profile">Profile</a></li>
                     </ul>
